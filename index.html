@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="sourceOne.js"></script>
+    <script src="sourceTwo.js"></script>
+    <script src="sourceThree.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <title>ExcleroData - Projeto de Visualização de Dados</title>
+</head>
+<body>
+    <header>
+        <h1>ExcleroData</h1>
+        <h2>Projeto de visualização de dados</h2>
+        <div class="main">
+            <p>Servindo de portfólio, o projeto ExcleroData tem o intuito de colocar em prática técnicas de visualização de dados de forma simples, objetiva e com visual limpo. Sabe-se que a área de dados envolve diversas etapas que são cruciais para um bom projeto, como a coleta, transformação e avaliação. Tendo isso em mente, a visualização dos dados é de suma importância para conduzir o espectador durante toda a apresentação, de forma que a mensagem seja transmitida de forma clara, intuitiva e objetiva.</p>
+            <p>Passado o breve momento de apresentação e objetivo deste portfólio, a primeira base de dados escolhida para ser trabalhada foi extraída do site oficial da <a href="https://data.giss.nasa.gov/gistemp/" target="_blank">NASA</a>, onde o tema abordado é o de mensuração da temperatura global desde 1880.</p>
+
+            <h1 id="count-display"></h1><p id="mean">média global base</p>
+            <script>
+                const countDisplay = document.getElementById('count-display');
+                let count = 1;
+                const maxCount = 14;
+
+                function updateCount() {
+                    if (count <= maxCount) {
+                        countDisplay.textContent = count + '˚ C';
+                        count++;
+                        
+                        setTimeout(updateCount, 300);
+                    }
+                }
+                updateCount();
+            </script>
+        </div>
+    </header>
+    <div class="textBox">
+        <p>Nessa primeira visualização nos deparamos com a variação da temperatura da superfície terrestre ano após ano. O interessante desse gráfico é repararmos que as cores escolhidas auxiliam no entendimento da elevação de temperatura no decorrer da série temporal, onde preferi destacar as variações abaixo da média com uma cor mais fria, enquanto que as variações acima da média foram destacadas com uma cor que remete a uma alta temperatura.</p>
+        <p>Conforme destacado acima, a média global era de 14˚ celsius. Maiores informações <a href="https://earthobservatory.nasa.gov/world-of-change/global-temperatures" target="_blank">aqui</a>.</p>
+    </div>
+    <canvas id="chartOne"></canvas>
+    <div class="textBox">
+        <p>No segundo quadro, trago uma abordagem mais simples e direta, exibindo a variação da temperatura terrestre total aos longo dos anos.</p>
+        <p style="font-style: italic;">Passe o mouse nos pontos para exibir o valor de cada ano.</p>
+    </div>
+    <canvas id="chartTwo"></canvas>
+    <div class="textBox">
+        <p>Por último, destaquei a média de temperatura a cada década utilizando o mesmo conceito do primeiro quadro, mas desta vez utilizando um outro modelo de gráfico.</p>
+        <p>Vale destaque para a última barra que registra a maior média, sendo que é o único período que ainda não completou os 10 anos, o que traz um grande sinal de alerta para esse tema.</p>
+    </div>
+    <canvas id="chartThree"></canvas>
+    <hr>
+    <footer>
+        <h2><a href="https://www.linkedin.com/in/alef-matias/" target="_blank">Alef Matias</a></h2>
+        <ul>
+            <li>Cientista de Dados</li>
+            <li>Analista de Web Analytics</li>
+            <li>Entusiasta de tecnologia</li>
+        </ul>
+    </footer>
+</body>
+</html>
